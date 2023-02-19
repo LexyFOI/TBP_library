@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<DBMODEL Version="1.9" TYPE="PostgreSQL">
+
+<MODELSETTINGS MDDVERSION="1.11.3 (build 1070)" ModelProject="" ModelName="knjiznica_baza_diagram" ModelCompany="" ModelAuthor="" ModelCopyright="" ModelVersion="" ModelVersionAI="0" ModelSaveScriptsWithVersion="0" ModelCreated="2017-08-29 14:24:43" ModelUpdated="2017-08-29 23:54:38" Description="" Annotation="" ZoomFac="101.00" XPos="0" YPos="0" PrintLink="" GenSettings="object GenSettings1: TGenSettings\n  TextCharCase = tccMixed\n  ModelCheck = True\n  DropIfExists = True\n  NotValidConstraints = False\n  ConcurrentlyIndexes = False\n  ISQL = False\n  ExecuteAfterGeneration = True\n  DBOptions = [dbgoCreate, dbgoBeginScript, dbgoEndScript]\n  ViewOptions = [viewgoCreate, viewgoCreateRule]\n  SPOptions = [spgoCreate]\n  TableOptions = [tblgoCreate, tblgoBeginScript, tblgoEndScript, tblgoComment, tblgoCreatePK, tblgoCreateFK, tblgoCreateIndex, tblgoCreateRule, tblgoCreateTrigger, tblgoCreateCHECK, tblgoFieldDefault]\n  OwnerOptions = [owngoSchema, owngoTable, owngoView, owngoSP, owngoSequence, owngoUDT]\n  ACLOptions = [aclgoSchema, aclgoTable, aclgoView, aclgoSP, aclgoSequence]\n  ModifyOptions = [mgoKeepTbls, mgoBackupTbls, mgoTraceRenaming]\n  RoleCreate = True\n  RoleWhenCreate = rocrInScript\n  SQLTypeNames = False\nend\n" DisplaySettings="object DisplaySettings1: TDisplaySettings\n  ObjectsDisplay = [edoColumns, edoInhColumns, edoIndices, edoConstraints, edoTriggers, edoRules, edoColTypes, edoFKs, rdoRefName, spdoParameters, spdoResult, spdoParamTypes, spdoParamKind, vdoAttributes, vdoTargets, vdoRules]\n  Color = clWhite\n  ShowIcons = True\n  SnapGrid = True\n  DisplaySnap = True\n  SnapSize = 10\n  ShowPages = True\n  EntityFillColor = clWhite\n  EntityLineColor = clNavy\n  SPFillColor = clCream\n  SPLineColor = clNavy\n  ViewFillColor = clMoneyGreen\n  ViewLineColor = clNavy\n  RefNotation = 0\n  RefColor = clNavy\n  RefLabelColor = clWhite\n  MinimapShapesStyle = mmssFillAndBorder\n  MinimapVisibleAreaStyle = mmvasBitmapShading\n  MinimapBackColor = clWhite\nend\n" DefaultDelete="3" DefaultUpdate="3" DefaultDataType="23" DefaultSchemaID="0" NamePatterns="" QueryDelimiter=";" DBQuoteCharacter="\A" EncloseNames="1" PKColumnsFirst="0" HPageCount="5" VPageCount="5" />
+
+<DATABASE Name="Database_1" CharacterSet="" Collate="" CType="" Tablespace="" Owner="" Template="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="0" />
+
+<STAMPS>
+</STAMPS>
+
+<ROLES>
+</ROLES>
+
+<SCHEMAS>
+<SCHEMA ID="0" Name="public" Owner="" Generate="0" Comments="" System="1" ACL=""></SCHEMA>
+</SCHEMAS>
+
+<SEQUENCES>
+</SEQUENCES>
+
+<DOMAINS>
+</DOMAINS>
+
+<COMPOSITES>
+<COMPOSITE ID="10000" Name="korisnik" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1000">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10001" Name="knjiga" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1002">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10002" Name="mjesto" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1004">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10003" Name="posudba" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1006">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10004" Name="primjerak" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1008">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10005" Name="rezervacija" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1010">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10006" Name="status" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1012">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10007" Name="tip_korisnika" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1014">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+</COMPOSITES>
+
+<SCALARS>
+</SCALARS>
+
+<ENUMS>
+</ENUMS>
+
+<TABLESPACES>
+</TABLESPACES>
+
+<METADATA>
+<ENTITIES>
+<ENTITY ID="1000" Name="korisnik" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="10" YPos="150" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="1" Name="korisnik_id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="2" Name="korisnik_tip" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3" Name="kor_ime" Pos="2" Datatype="1043" Type="varchar" Width="15" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="4" Name="lozinka" Pos="3" Datatype="1043" Type="varchar" Width="15" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="5" Name="ime" Pos="4" Datatype="1043" Type="varchar" Width="45" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="6" Name="prezime" Pos="5" Datatype="1043" Type="varchar" Width="45" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="7" Name="oib" Pos="6" Datatype="1700" Type="numeric" Width="11" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="8" Name="adresa" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="9" Name="mjesto" Pos="8" Datatype="1700" Type="numeric" Width="5" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="10" Name="email" Pos="9" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="24" />
+		<REFERENCE_BEGIN ID="28" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="23" />
+		<REFERENCE_END ID="25" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="1" Name="" Kind="2" Expression="" ReferenceIndex="1637" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="1"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1002" Name="knjiga" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="540" YPos="10" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="11" Name="knjiga_id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="12" Name="broj_primjeraka" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="13" Name="naslov" Pos="2" Datatype="1043" Type="varchar" Width="150" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="14" Name="pisac" Pos="3" Datatype="1043" Type="varchar" Width="100" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="15" Name="sazetak" Pos="4" Datatype="1043" Type="varchar" Width="500" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="16" Name="br_rezerviranih" Pos="5" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="46" Name="slika" Pos="6" Datatype="26" Type="oid" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="12" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="2" Name="" Kind="2" Expression="" ReferenceIndex="1629" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="11"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1004" Name="mjesto" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="20" YPos="20" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="17" Name="mjesto_id" Pos="0" Datatype="1700" Type="numeric" Width="5" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="18" Name="naziv" Pos="1" Datatype="1043" Type="varchar" Width="45" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="23" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="3" Name="" Kind="2" Expression="" ReferenceIndex="1631" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="17"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1006" Name="posudba" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="350" YPos="430" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="19" Name="posudba_id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="20" Name="primjerak_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="21" Name="kor_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="22" Name="od_datum" Pos="3" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="23" Name="do_datum" Pos="4" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="24" Name="aktivna" Pos="5" Datatype="16" Type="bool" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="True" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="45" Name="produzena" Pos="6" Datatype="1700" Type="numeric" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="28" />
+		<REFERENCE_END ID="29" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="4" Name="" Kind="2" Expression="" ReferenceIndex="1640" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="19"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1008" Name="primjerak" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="220" YPos="160" Temporary="0" Unlogged="0" OnCommit="" Inherits="1002" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="26" Name="primjerak_id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="27" Name="knjiga_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="28" Name="status_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="29" Name="izdavac" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="30" Name="god_izdanja" Pos="4" Datatype="1700" Type="numeric" Width="4" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="29" />
+		<REFERENCE_BEGIN ID="30" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="12" />
+		<REFERENCE_END ID="31" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="5" Name="" Kind="2" Expression="" ReferenceIndex="1644" FillFactor="" Comments="False" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="26"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1010" Name="rezervacija" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="250" YPos="10" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="31" Name="rezervacija_id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="32" Name="kor_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="33" Name="primjerak_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="34" Name="datum" Pos="3" Datatype="1082" Type="date" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="35" Name="aktivna" Pos="4" Datatype="16" Type="bool" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="True" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="24" />
+		<REFERENCE_END ID="30" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="6" Name="" Kind="2" Expression="" ReferenceIndex="1642" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="31"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1012" Name="status" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="560" YPos="280" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="36" Name="status_id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="37" Name="naziv" Pos="1" Datatype="1043" Type="varchar" Width="30" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="31" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="7" Name="" Kind="2" Expression="" ReferenceIndex="1643" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="36"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1014" Name="tip_korisnika" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="40" YPos="450" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="38" Name="tip_id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="39" Name="naziv" Pos="1" Datatype="1043" Type="varchar" Width="45" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="40" Name="opis" Pos="2" Datatype="1043" Type="varchar" Width="100" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="8" Name="" Kind="2" Expression="" ReferenceIndex="1635" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="38"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+</ENTITIES>
+
+<REFERENCES>
+<REFERENCE ID="12" Name="Ref_primjerak_to_knjiga" SOURCE="1002" DESTINATION="1008" FKIDS="11=27\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="2" LabelPointNumber="2" LabelPosition="0.50706514254235" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="23" Name="Ref_korisnik_to_mjesto" SOURCE="1004" DESTINATION="1000" FKIDS="17=9\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="3" LabelPointNumber="2" LabelPosition="0.739515652687537" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="24" Name="Ref_rezervacija_to_korisnik" SOURCE="1000" DESTINATION="1010" FKIDS="1=32\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="1" LabelPointNumber="2" LabelPosition="0.533151803948264" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25" Name="Ref_korisnik_to_tip_korisnika" SOURCE="1014" DESTINATION="1000" FKIDS="38=2\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="8" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="28" Name="Ref_posudba_to_korisnik" SOURCE="1000" DESTINATION="1006" FKIDS="1=21\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="1" LabelPointNumber="2" LabelPosition="0.644321688066089" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="29" Name="Ref_posudba_to_primjerak" SOURCE="1008" DESTINATION="1006" FKIDS="26=20\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="5" LabelPointNumber="2" LabelPosition="0.71025120923701" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="30" Name="Ref_rezervacija_to_primjerak" SOURCE="1008" DESTINATION="1010" FKIDS="26=33\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="5" LabelPointNumber="2" LabelPosition="0" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="31" Name="Ref_primjerak_to_status" SOURCE="1012" DESTINATION="1008" FKIDS="36=28\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="7" LabelPointNumber="2" LabelPosition="0.486471977668026" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+</REFERENCES>
+
+<NOTES>
+</NOTES>
+
+<STOREDPROCES>
+</STOREDPROCES>
+
+<VIEWS>
+</VIEWS>
+
+</METADATA>
+</DBMODEL>

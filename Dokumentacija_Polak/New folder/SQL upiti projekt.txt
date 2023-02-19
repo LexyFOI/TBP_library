@@ -1,0 +1,146 @@
+-----PRIMJER SA MOODLA --------
+
+CREATE TYPE status AS ENUM( 'blokiran' , 'nije na vezi' , 'na vezi' ) ;
+
+CREATE TYPE address AS (
+"drzava" varchar (50) ,
+"grad" varchar (50) ,
+"postanski_broj" int4,
+"ulica" varchar (100) ,
+"broj" int4
+) ;
+
+CREATE TYPE general AS (
+"ime" varchar (50) ,
+"prezime" varchar (50) ,
+"datum_rodjenja" date ,
+"spol" char ( 1 ) ,
+"prebivaliste" address
+) ;
+
+CREATE TYPE contract AS (
+"datum_pocetka" date ,
+"datum_zavr setka" date ,
+"placa" money
+) ;
+
+CREATE TABLE "zaposlenik" (
+"email" varchar (200) NOT NULL,
+"lozinka" varchar (50) NOT NULL,
+"stanje" status NOT NULL DEFAULT 'nije na vezi' ,
+"slika" oid ,
+"osobni_podaci " general NOT NULL,
+"broj_telefona" varchar (50) NOT NULL,
+"ugovor" contract NOT NULL,
+"titula" varchar (50) ,
+PRIMARY KEY( "email" )
+) ;
+
+CREATE TABLE " i g r a c " (
+" v i s i n a " f l o a t 4 ,
+" t e z i n a " f l o a t 4 ,
+" f i z i c k a_s p r ema " r a t i n g ,
+" t a k t i k a " r a t i n g ,
+" t e h n i k a " r a t i n g ,
+" p r e k i d i " r a t i n g ,
+" forma " char [ 5 ] ,
+" komentar " t e x t ,
+CONSTRAINT " f o rma_o g r ani c enj e "
+CHECK( forma [ 1 ] IN ( ' L ' , 'D' , ' I ' ) AND
+forma [ 2 ] IN ( ' L ' , 'D' , ' I ' ) AND
+forma [ 3 ] IN ( ' L ' , 'D' , ' I ' ) AND
+forma [ 4 ] IN ( ' L ' , 'D' , ' I ' ) AND
+forma [ 5 ] IN ( ' L ' , 'D' , ' I ' ) ) ,
+CONSTRAINT " v i s i n a_o g r a n i c e n j e " CHECK( v i s i n a > 1 .00 AND
+v i s i n a < 4 . 0 0 ) ,
+CONSTRAINT " t e z i n a_o g r a n i c e n j e " CHECK( t e z i n a > 1 .00 AND
+t e z i n a < 1 0 0 0 . 0 0 ) ,
+CONSTRAINT " pk_igrac " PRIMARY KEY( " ema i l " )
+)
+INHERITS ( " z a p o s l e n i k " ) ;
+
+
+---------------------------------------------------------------------------------------------
+---------------------------------UPITI KNJIŽNICA; ALEX---------------------------------------
+----------------------------------------------------------------------------------------------
+
+
+CREATE TYPE tip AS ENUM( 'zaposlenik', 'korisnik');
+
+CREATE TYPE address AS (
+"drzava" varchar (50),
+"grad" varchar (50),
+"postanski_broj" int4,
+"ulica" varchar (100),
+"broj" int4
+);
+
+CREATE TYPE general AS (
+"ime" varchar (50),
+"prezime" varchar (50),
+"datum_rodjenja" date,
+"spol" char ( 1 ),
+"prebivaliste" address
+);
+
+CREATE TABLE "osoba" (
+"broj_kartice" int10 NOT NULL,
+"kor_ime" varchar(25) NOT NULL,
+"lozinka" varchar (50) NOT NULL,
+"osobni_podaci" general NOT NULL,
+"tip" tip NOT NULL,
+"br_posudenih" int2 NOT NULL DEFAULT 0,
+"lista_posudenih" varchar[3],
+"lista_rezerviranih" varchar[3],
+CONSTRAINT "br_posudenih_ogran" CHECK( br_posudenih > 4),
+PRIMARY KEY("broj_kartice")
+);
+
+CREATE TYPE status AS ENUM( 'aktivan', 'neaktivan');
+
+CREATE TABLE "korisnik" (
+"status" status NOT NULL DEFAULT 'neaktivan',
+"clanstvo_od" date,
+"clanstvo_do" date,
+PRIMARY KEY("broj_kartice")
+)
+INHERITS ("osoba");
+
+CREATE TYPE job AS ENUM( 'admin', 'moderator', 'knjiznicar');
+
+CREATE TABLE "zaposlenik"(
+"uloga" job NOT NULL,
+PRIMARY KEY("broj_kartice")
+)
+INHERITS ("osoba");
+
+
+
+
+INSERT INTO zaposlenik(broj_kartice, lozinka, osobni_podaci, tip, br_posudenih, lista_posudenih, lista_rezerviranih, uloga, kor_ime )
+VALUES ( 00001, 123,
+         ROW('Aleksandra','Polak','03.09.1990','Z',
+         ROW ('Hrvatska', 'Lekenik', 44272, 'Petrovec', '17')),
+         'zaposlenik',0,NULL ,NULL ,'admin','apolak');
+
+INSERT INTO zaposlenik(broj_kartice, lozinka, osobni_podaci, tip, br_posudenih, lista_posudenih, lista_rezerviranih, uloga, kor_ime )
+VALUES ( 00002, 1234,
+         ROW('Paula','Kokic','1994-09-19','Z',
+         ROW ('Hrvatska', 'Zadar', 23000, 'Ive Andrica', '15')),
+         'zaposlenik',0,NULL,NULL,'moderator','pkokic');
+
+
+INSERT INTO korisnik(broj_kartice, lozinka, osobni_podaci, tip, br_posudenih, lista_posudenih, lista_rezerviranih,status, clanstvo_od, clanstvo_do, kor_ime)
+VALUES ( 00003, 12345,
+    ROW('Ana','Anic','1963-04-23','Z',
+    ROW ('Hrvatska', 'Sisak', 44272, 'Petrovec', '19')),
+    'korisnik',0,NULL,NULL,'aktivan','2018-01-01','2019-01-01','aanic'
+  ),( 00004, 12345,
+    ROW('Josipa','Polak','2004-07-24','Z',
+    ROW ('Hrvatska','Sisak',44272,'Petrovec','17')),
+    'korisnik',0,NULL,NULL,'aktivan','2018-02-01','2019-02-01','jpolak'
+  ),( 00005, 12345,
+    ROW('Maja','Borošic','1990-07-25','Z',
+    ROW ('Hrvatska','Petrinja',44250,'Petrinjska','22')),
+    'korisnik',0,NULL,NULL,'aktivan','2018-03-01','2019-03-01','mborosic'
+  );

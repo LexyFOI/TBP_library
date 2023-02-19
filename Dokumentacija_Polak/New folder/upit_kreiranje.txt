@@ -1,0 +1,129 @@
+CREATE TABLE "tip_korisnika" (
+	"tip_id" SERIAL NOT NULL,
+	"naziv" varchar(45),
+	"opis" varchar(100),
+	PRIMARY KEY("tip_id")
+);
+
+CREATE TABLE "status" (
+	"status_id" SERIAL NOT NULL,
+	"naziv" varchar(30),
+	PRIMARY KEY("status_id")
+);
+
+CREATE TABLE "rezervacija" (
+	"rezervacija_id" SERIAL NOT NULL,
+	"kor_id" int4,
+	"primjerak_id" int4,
+	"datum" date,
+	"aktivna" bool DEFAULT True,
+	PRIMARY KEY("rezervacija_id")
+);
+
+CREATE TABLE "primjerak" (
+	"primjerak_id" SERIAL NOT NULL,
+	"knjiga_id" int4,
+	"status_id" int4,
+	"izdavac" varchar(50),
+	"god_izdanja" numeric(4),
+	PRIMARY KEY("primjerak_id")
+)
+INHERITS ("knjiga");
+
+CREATE TABLE "posudba" (
+	"posudba_id" SERIAL NOT NULL,
+	"primjerak_id" int4,
+	"kor_id" int4,
+	"od_datum" int4,
+	"do_datum" int4,
+	"aktivna" bool DEFAULT True,
+	"produzena" numeric DEFAULT 0,
+ 	"slika" oid;
+	PRIMARY KEY("posudba_id")
+);
+
+CREATE TABLE "mjesto" (
+	"mjesto_id" numeric(5) NOT NULL,
+	"naziv" varchar(45),
+	PRIMARY KEY("mjesto_id")
+);
+
+CREATE TABLE "knjiga" (
+	"knjiga_id" int4 NOT NULL,
+	"broj_primjeraka" int4 DEFAULT 0,
+	"naslov" varchar(150),
+	"pisac" varchar(100),
+	"sazetak" varchar(500),
+	"br_rezerviranih" int4 DEFAULT 0,
+	PRIMARY KEY("knjiga_id")
+);
+
+CREATE TABLE "korisnik" (
+	"korisnik_id" SERIAL NOT NULL,
+	"korisnik_tip" int4,
+	"kor_ime" varchar(15),
+	"lozinka" varchar(15),
+	"ime" varchar(45),
+	"prezime" varchar(45),
+	"oib" numeric(11),
+	"adresa" varchar(50),
+	"mjesto" numeric(5),
+	"email" varchar(50),
+	PRIMARY KEY("korisnik_id")
+);
+
+ALTER TABLE "rezervacija" ADD CONSTRAINT "Ref_rezervacija_to_korisnik" FOREIGN KEY ("kor_id")
+	REFERENCES "korisnik"("korisnik_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
+
+ALTER TABLE "rezervacija" ADD CONSTRAINT "Ref_rezervacija_to_primjerak" FOREIGN KEY ("primjerak_id")
+	REFERENCES "primjerak"("primjerak_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
+
+ALTER TABLE "primjerak" ADD CONSTRAINT "Ref_primjerak_to_knjiga" FOREIGN KEY ("knjiga_id")
+	REFERENCES "knjiga"("knjiga_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
+
+ALTER TABLE "primjerak" ADD CONSTRAINT "Ref_primjerak_to_status" FOREIGN KEY ("status_id")
+	REFERENCES "status"("status_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
+
+ALTER TABLE "posudba" ADD CONSTRAINT "Ref_posudba_to_korisnik" FOREIGN KEY ("kor_id")
+	REFERENCES "korisnik"("korisnik_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
+
+ALTER TABLE "posudba" ADD CONSTRAINT "Ref_posudba_to_primjerak" FOREIGN KEY ("primjerak_id")
+	REFERENCES "primjerak"("primjerak_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
+
+ALTER TABLE "korisnik" ADD CONSTRAINT "Ref_korisnik_to_mjesto" FOREIGN KEY ("mjesto")
+	REFERENCES "mjesto"("mjesto_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
+
+ALTER TABLE "korisnik" ADD CONSTRAINT "Ref_korisnik_to_tip_korisnika" FOREIGN KEY ("korisnik_tip")
+	REFERENCES "tip_korisnika"("tip_id")
+	MATCH SIMPLE
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	NOT DEFERRABLE;
